@@ -5,7 +5,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'employees', 
   password: 'P@ssword1',
-  port: 5432,
+  port: 5433,
 });
 
-export default pool;  // Export the pool to be used in other parts of the application
+export default pool; 

@@ -3,7 +3,7 @@ import pool from '@/app/db/db';
 
 export async function GET() {
   try {
-    const result = await pool.query('SELECT * FROM employees');
+    const result = await pool.query('SELECT * FROM employee');
     return NextResponse.json(result.rows);
   } catch (error) {
     return NextResponse.json({ error: 'Failed to fetch employees' }, { status: 500 });
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const { name, id } = body;
     
     const result = await pool.query(
-      'INSERT INTO employees (name, id) VALUES ($1, $2) RETURNING *',
+      'INSERT INTO employee (name, id) VALUES ($1, $2) RETURNING *',
       [name, id]
     );
     

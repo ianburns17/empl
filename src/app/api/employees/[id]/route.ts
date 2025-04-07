@@ -7,7 +7,7 @@ export async function DELETE(
 ) {
   try {
     const id = parseInt(params.id);
-    await pool.query('DELETE FROM employees WHERE id = $1', [id]);
+    await pool.query('DELETE FROM employee WHERE id = $1', [id]);
     return NextResponse.json({ message: 'Employee deleted successfully' });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to delete employee' }, { status: 500 });

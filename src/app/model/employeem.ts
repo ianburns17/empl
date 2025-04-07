@@ -1,4 +1,4 @@
-import { Employee } from "../interfaces/employee.ts";
+import { Employee } from "../interfaces/employee";
 
 abstract class AbstractEmployee implements Employee {
   constructor(public name: string, public id: number) {}

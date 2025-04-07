@@ -20,13 +20,21 @@ export default function Home() {
     try {
       const response = await fetch('/api/employees');
       const data = await response.json();
-      setEmployees(data);
+  
+      // Ensure 'data' is an array
+      if (Array.isArray(data)) {
+        setEmployees(data);
+      } else {
+        console.log(data)
+        setError('Invalid data format');
+      }
       setLoading(false);
     } catch (err) {
       setError('Failed to fetch employees');
       setLoading(false);
     }
   };
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
